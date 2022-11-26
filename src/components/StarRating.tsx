@@ -2,7 +2,7 @@ import { useState } from 'react';
 interface StarRatingProps {
   rating: number;
   setRating?: React.Dispatch<React.SetStateAction<number>>;
-  hover: number;
+  hover?: number;
   setHover?: React.Dispatch<React.SetStateAction<number>>;
 }
 
