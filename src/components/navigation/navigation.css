@@ -1,0 +1,41 @@
+@media (max-width: 660px) {
+  nav {
+    background-color: #a16207;
+    position: relative;
+    padding-top: 20px;
+  }
+  .navigation {
+    display: none;
+  }
+  .navigation.opened {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    z-index: 1000;
+    top: 0;
+    width: 90%;
+    height: 100%;
+    background-color: hsl(0 0% 100% / 0.7);
+    backdrop-filter: blur(1rem);
+    padding: 20px;
+    padding-top: 35px;
+    list-style: none;
+  }
+  .navigation.opened > :nth-child(2) {
+    flex: 1;
+  }
+
+  a {
+    list-style: none;
+    color: black;
+    font-size: 2rem;
+    padding: 25px;
+    text-decoration: none;
+  }
+  .close-menu {
+    position: absolute;
+    top: 35px;
+    right: 20px;
+  }
+}
