@@ -6,6 +6,7 @@ interface UserType {
   email: string;
   displayName: string;
   _id: string;
+  role: string;
 }
 
 interface UserContextInterface {
@@ -15,6 +16,7 @@ interface UserContextInterface {
 
 export const UserContext = createContext<UserContextInterface>({
   user: {
+    role: '',
     email: '',
     displayName: '',
     _id: '',
