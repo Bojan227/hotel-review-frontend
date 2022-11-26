@@ -1,6 +1,6 @@
-@media (max-width: 420px) {
+@media (max-width: 660px) {
   .hotel-container {
-    background-color: #b45309;
+    background-color: #a16207;
     display: flex;
     flex-direction: column;
     gap: 55px;
@@ -20,26 +20,73 @@
     height: 250px;
     width: 100%;
     position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   }
   .hotel-card-info {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
+    width: 60%;
   }
   .hotel-card-info > p {
-    display: block;
-    width: 150px;
-
+    display: flex;
+    text-align: end;
     font-weight: 600;
   }
   .hotel-card > img {
     border-radius: 20px;
-    width: 50%;
+    width: 40%;
     height: 100%;
     position: absolute;
     left: -25px;
     top: -20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .hotel-details {
+    background-color: #a16207;
+    min-height: 100vh;
+  }
+
+  .hotel-details-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hotel-details-card > img {
+    width: 100%;
+    height: 300px;
+  }
+
+  .hotel-details-card-info {
+    background-color: #f4f4f5;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+    gap: 15px;
+    position: relative;
+  }
+  .hotel-details-card-info > svg {
+    position: absolute;
+    width: 62px;
+    top: -35px;
+    right: 30%;
+  }
+  .hotel-details-card-info > :nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 360px) {
+  .hotel-card > img {
+    width: 40%;
+    height: 85%;
+  }
+  .hotel-details-card > img {
+    width: 100%;
   }
 }
