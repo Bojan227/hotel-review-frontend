@@ -1,0 +1,36 @@
+@media (max-width: 660px) {
+  .reviews-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    gap: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+  }
+
+  .review-card {
+    display: flex;
+    width: 80%;
+    gap: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    justify-content: space-between;
+  }
+  .review-card > :nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 10px;
+  }
+  .review-card > :nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30px;
+    gap: 10px;
+    justify-content: space-between;
+  }
+}

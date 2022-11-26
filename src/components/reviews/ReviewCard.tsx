@@ -1,4 +1,7 @@
 import { ReviewType } from './types/ReviewTypes';
+import { StarRating } from '../StarRating';
+import { Like } from '../svgs/Like';
+import { Dislike } from '../svgs/Dislike';
 
 export default function ReviewCard({
   createdBy,
@@ -10,9 +13,18 @@ export default function ReviewCard({
 }: ReviewType) {
   return (
     <div className="review-card">
-      <h1>{createdBy.displayName}</h1>
-      <h1>{text}</h1>
-      <h2>{rating}</h2>
+      <div>
+        <h1>{createdBy.displayName}</h1>
+        <p>{text}</p>
+        <StarRating rating={rating} />
+      </div>
+      <div>
+        <Like />
+        <h4>10</h4>
+
+        <Dislike />
+        <h4>10</h4>
+      </div>
     </div>
   );
 }
