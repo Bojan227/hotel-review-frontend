@@ -1,4 +1,5 @@
 import { HotelDataType } from './types/types';
+import Favourite from '../svgs/Favourite';
 
 export default function HotelDetailsCard({
   _id,
@@ -22,6 +23,7 @@ export default function HotelDetailsCard({
           <h1>Description</h1>
           <p>{text}</p>
         </div>
+        <Favourite />
       </div>
     </div>
   );
