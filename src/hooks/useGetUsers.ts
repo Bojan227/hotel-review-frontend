@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { UserType } from '../context/userContext';
 
 export default function useGetUsers() {
-  const [fetchedUsers, setUsers] = useState();
+  const [users, setUsers] = useState<UserType[]>();
   const [errorMessage, setErrorMessage] = useState('');
 
   const getUsers = async (uri: string) => {
@@ -15,5 +16,5 @@ export default function useGetUsers() {
     }
   };
 
-  return { getUsers, fetchedUsers, errorMessage };
+  return { getUsers, users, errorMessage };
 }
