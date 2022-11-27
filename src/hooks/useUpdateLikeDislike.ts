@@ -1,9 +1,10 @@
 import { Dispatch, SetStateAction, useState } from 'react';
+import { ReviewType } from '../components/reviews/types/ReviewTypes';
 
 interface UpdateProps {
   uri: string;
   reviewId: string;
-  setReviews: Dispatch<SetStateAction<any>>;
+  setReviews: Dispatch<SetStateAction<ReviewType[] | undefined>>;
 }
 
 export default function useUpdateLikeDislike() {
@@ -24,17 +25,17 @@ export default function useUpdateLikeDislike() {
 
       const updatedReview = await res.json();
 
-      //   setReviews((prevState) => {
-      //     return prevState?.map((state) => {
-      //       if (state._id === json.post._id) {
-      //         return {
-      //           ...json.post,
-      //         };
-      //       } else {
-      //         return state;
-      //       }
-      //     });
-      //   });
+      setReviews((prevState) => {
+        return prevState?.map((state) => {
+          if (state._id === updatedReview._id) {
+            return {
+              ...updatedReview,
+            };
+          } else {
+            return state;
+          }
+        });
+      });
     } catch (error) {
       setErrorMessage('Cannot update like/dislike state');
     }

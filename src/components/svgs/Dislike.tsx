@@ -1,12 +1,23 @@
-export const Dislike = () => {
+import { UserType } from '../../context/userContext';
+import useUserContext from '../../hooks/useUserContext';
+type DislikeProps = {
+  updateDislike: () => void;
+  dislikes: (string | undefined)[];
+};
+
+export const Dislike = ({ updateDislike, dislikes }: DislikeProps) => {
+  const userContext = useUserContext();
+
+  console.log(dislikes);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill="none"
+      fill={`${dislikes?.includes(userContext.user?._id) ? 'black' : 'none'}`}
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
       className="w-6 h-6"
+      onClick={updateDislike}
     >
       <path
         strokeLinecap="round"

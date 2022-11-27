@@ -1,11 +1,19 @@
-export const Like = () => {
+import useUserContext from '../../hooks/useUserContext';
+type LikeProps = {
+  updateLike: () => void;
+  likes: (string | undefined)[];
+};
+
+export const Like = ({ updateLike, likes }: LikeProps) => {
+  const userContext = useUserContext();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill="none"
+      fill={`${likes?.includes(userContext.user?._id) ? 'black' : 'none'}`}
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
+      onClick={updateLike}
     >
       <path
         strokeLinecap="round"
