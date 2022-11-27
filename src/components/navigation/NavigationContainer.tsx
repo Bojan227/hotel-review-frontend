@@ -1,5 +1,6 @@
 import { homeData, loggedOutUser, userLoggedIn, adminUser } from './navData';
 import { NavigationLink } from './NavigationLink';
+import useLogout from '../../hooks/useLogout';
 import menu from './images/menu.png';
 import close from './images/close.png';
 import './navigation.css';
@@ -9,6 +10,7 @@ import { useState } from 'react';
 export default function Navigation() {
   const [toggleMenu, setToggleMenu] = useState(false);
   const userContext = useUserContext();
+  const { logout } = useLogout();
 
   const filterNavData = userContext.user
     ? homeData.concat(userLoggedIn)
@@ -24,13 +26,16 @@ export default function Navigation() {
       <div onClick={() => setToggleMenu(true)} className="menu">
         <img src={menu} alt="menu" />
       </div>
-      <ul className={`navigation ${toggleMenu ? 'opened' : ''}`}>
-        {filterByRole.map((data) => (
-          <li>
-            <NavigationLink {...data} />
+      <ul
+        className={`navigation ${toggleMenu ? 'opened' : ''}`}
+        onClick={() => setToggleMenu(false)}
+      >
+        {filterByRole.map((data, i) => (
+          <li onClick={data.title === 'Logout' ? logout : undefined}>
+            <NavigationLink key={i} {...data} />
           </li>
         ))}
-        <div onClick={() => setToggleMenu(false)} className="close-menu">
+        <div className="close-menu">
           <img src={close} alt="close-menu" />
         </div>
       </ul>
