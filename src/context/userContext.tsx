@@ -1,12 +1,14 @@
 import { createContext, useReducer, useEffect } from 'react';
+import { HotelDataType } from '../components/feed/types/types';
 
 type ActionType = { type: 'LOGIN'; payload: UserType } | { type: 'LOGOUT' };
 
-interface UserType {
+export interface UserType {
   email: string;
   displayName: string;
   _id: string;
   role: string;
+  favourites: HotelDataType[];
 }
 
 interface UserContextInterface {
@@ -20,6 +22,7 @@ export const UserContext = createContext<UserContextInterface>({
     email: '',
     displayName: '',
     _id: '',
+    favourites: [],
   },
   dispatch: () => {},
 });
