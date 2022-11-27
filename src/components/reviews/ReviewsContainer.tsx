@@ -1,16 +1,15 @@
 import ReviewCard from './ReviewCard';
-import reviewData from './reviewData';
-import { useParams } from 'react-router-dom';
 import './reviews.css';
+import { ReviewType } from './types/ReviewTypes';
 
-export default function ReviewsContainer() {
-  const { hotelId } = useParams();
-
+export default function ReviewsContainer({
+  reviews,
+}: {
+  reviews: ReviewType[] | undefined;
+}) {
   return (
     <div className="reviews-container">
-      {reviewData.map((data) => (
-        <ReviewCard {...{ ...data }} />
-      ))}
+      {reviews && reviews.map((review) => <ReviewCard {...{ ...review }} />)}
     </div>
   );
 }

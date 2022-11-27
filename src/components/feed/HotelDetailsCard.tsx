@@ -1,5 +1,6 @@
 import { HotelDataType } from './types/types';
 import Favourite from '../svgs/Favourite';
+import { useHotelContext } from '../../context/hotelContext';
 
 export default function HotelDetailsCard({
   _id,
