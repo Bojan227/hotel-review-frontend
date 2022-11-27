@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export default function useFetch() {
-  const [data, setData] = useState();
+  const [data, setData] = useState<Array<[]> | any>();
   const [errorMessage, setErrorMessage] = useState('');
   const getData = async (uri: string) => {
     try {
