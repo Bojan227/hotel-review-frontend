@@ -8,7 +8,6 @@ type DislikeProps = {
 export const Dislike = ({ updateDislike, dislikes }: DislikeProps) => {
   const userContext = useUserContext();
 
-  console.log(dislikes);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
