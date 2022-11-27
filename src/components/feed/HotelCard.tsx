@@ -1,4 +1,5 @@
 import { HotelDataType } from './types/types';
+import { Link } from 'react-router-dom';
 
 export default function HotelCard({
   _id,
@@ -16,7 +17,9 @@ export default function HotelCard({
         <h3>{address}</h3>
         <h4>Overall Rating</h4>
         <p>{text}</p>
-        <button>Reviews</button>
+        <Link to={`h/${_id}`}>
+          <button>Reviews</button>
+        </Link>
       </div>
     </div>
   );

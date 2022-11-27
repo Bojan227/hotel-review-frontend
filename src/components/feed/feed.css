@@ -1,6 +1,6 @@
 @media (max-width: 660px) {
   .hotel-container {
-    background-color: #a16207;
+    background-color: #fb923c;
     display: flex;
     flex-direction: column;
     gap: 55px;
@@ -46,7 +46,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
   .hotel-details {
-    background-color: #a16207;
+    background-color: #fb923c;
     min-height: 100vh;
   }
 
@@ -73,7 +73,7 @@
     position: absolute;
     width: 62px;
     top: -35px;
-    right: 30%;
+    right: 40%;
   }
   .hotel-details-card-info > :nth-child(1) {
     display: flex;
