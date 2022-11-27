@@ -1,4 +1,5 @@
 import { useState, Dispatch, SetStateAction } from 'react';
+import { ReviewType } from '../components/reviews/types/ReviewTypes';
 
 export default function useCreateReview() {
   const [isLoading, setIsLoading] = useState(false);
@@ -6,9 +7,9 @@ export default function useCreateReview() {
 
   const createReview = async (
     text: string,
-    hotelId: string,
+    hotelId: string | undefined,
     rating: number,
-    setReviews: Dispatch<SetStateAction<any>>
+    setReviews: Dispatch<SetStateAction<ReviewType[] | undefined>>
   ) => {
     setIsLoading(true);
     try {
@@ -27,7 +28,7 @@ export default function useCreateReview() {
 
       const review = await res.json();
 
-      //   setReviews((prev) => [...prev, review]);
+      setReviews((prev) => [...prev!, review]);
     } catch (err) {
       setError('Something went wrong');
     } finally {
