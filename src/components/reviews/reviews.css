@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     max-height: 300px;
+    min-height: 300px;
     overflow-y: auto;
   }
 

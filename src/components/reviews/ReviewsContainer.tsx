@@ -13,7 +13,9 @@ export default function ReviewsContainer({
   return (
     <div className="reviews-container">
       {reviews &&
-        reviews.map((review) => <ReviewCard {...{ ...review, setReviews }} />)}
+        reviews.map((review) => (
+          <ReviewCard key={review._id} {...{ ...review, setReviews }} />
+        ))}
     </div>
   );
 }

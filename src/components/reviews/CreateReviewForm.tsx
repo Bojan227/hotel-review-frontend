@@ -23,7 +23,6 @@ export default function CreateReviewForm({
     setHover(() => 0);
   }
 
-  console.log(rating);
   return (
     <form onSubmit={handleSubmit} className="review-form">
       <textarea
