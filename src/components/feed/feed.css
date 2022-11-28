@@ -34,6 +34,11 @@
     color: #6366f1;
     font-weight: 900;
   }
+  .hotel-card-info > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   .hotel-card > img {
     border-radius: 20px;
@@ -84,7 +89,7 @@
 
   .review-btn-card {
     background-color: #6366f1;
-    padding: 5px 35px;
+    padding: 10px 45px;
     border: 0;
     outline: none;
     cursor: pointer;

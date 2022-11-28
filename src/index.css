@@ -31,4 +31,7 @@ main {
     padding: 30px;
     width: 100%;
   }
+  .favourites-container > h1 {
+    color: #6366f1;
+  }
 }
