@@ -20,6 +20,7 @@ export default function UsersContainer({
     getUsers(`http://localhost:3000/review/${reviewId}/${title.toLowerCase()}`);
   }, []);
 
+  console.log(users);
   return (
     <div onClick={closeModal} className="main-users-container">
       <div onClick={(e) => e.stopPropagation()} className="users-container">

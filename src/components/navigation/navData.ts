@@ -19,5 +19,5 @@ export const userLoggedIn = [
 
 export const loggedOutUser = [
   { title: 'Signup', link: '/signup' },
-  { title: 'Signin', link: '/signin' },
+  { title: 'Signin', link: '/login' },
 ];
