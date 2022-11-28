@@ -7,6 +7,7 @@ import Navigation from './components/navigation/NavigationContainer';
 import HotelDetails from './components/feed/HotelDetails';
 import FavouritesContainer from './components/FavouritesContainer';
 import CreateHotelForm from './components/CreateHotelForm';
+import EditContainer from './components/feed/EditContainer';
 
 function App() {
   const userContext = useUserContext();
@@ -25,6 +26,7 @@ function App() {
           <Route path="/favourites" element={<FavouritesContainer />} />
           <Route path="/h/:hotelId" element={<HotelDetails />} />
           <Route path="/create" element={<CreateHotelForm />} />
+          <Route path="/edit/:hotelId" element={<EditContainer />} />
         </Routes>
       </BrowserRouter>
     </div>

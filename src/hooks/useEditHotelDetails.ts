@@ -4,12 +4,13 @@ interface editHotelDetailsProps {
   hotelName: string;
   address: string;
   text: string;
-  hotelId: string;
-  setHotelState: Dispatch<SetStateAction<any>>;
+  hotelId: string | undefined;
 }
 
 export default function useEditHotelDetails() {
   const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
+
   const editHotelDetails = async ({
     hotelName,
     address,
@@ -33,19 +34,11 @@ export default function useEditHotelDetails() {
 
       const newHotel = await res.json();
 
-      //   setHotelState((prevState) => {
-      //     return prevState?.map((state) => {
-      //       if (state._id === json.post._id) {
-      //         return {
-      //           ...json.post,
-      //         };
-      //       } else {
-      //         return state;
-      //       }
-      //     });
-      //   });
+      setMessage('Hotel details was successfully updated');
     } catch (error) {
-      setError('Cannot update like/dislike state');
+      setError('Cannot update hotel details');
     }
   };
+
+  return { editHotelDetails, error, message };
 }
