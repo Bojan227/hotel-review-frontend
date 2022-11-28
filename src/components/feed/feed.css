@@ -54,11 +54,6 @@
     min-height: 100vh;
   }
 
-  .hotel-details-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .hotel-details-card > img {
     width: 100%;
     height: 300px;
@@ -74,17 +69,32 @@
     position: relative;
     border-bottom: 2px solid #6366f1;
   }
-  .hotel-details-card-info > svg {
-    width: 62px;
-    top: -35px;
-    right: 40%;
-  }
+
   .hotel-details-card-info > :nth-child(1) {
     display: flex;
     justify-content: space-between;
   }
   .hotel-details-card-info > :nth-child(1) > h1 {
     color: #6366f1;
+  }
+  .bottom-section {
+    display: flex;
+    justify-content: space-between;
+  }
+  .bottom-section > div > svg {
+    width: 62px;
+  }
+
+  .bottom-section > :nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bottom-section > :nth-child(2) {
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
 
   .review-btn-card {

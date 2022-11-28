@@ -1,6 +1,8 @@
 import { HotelDataType } from './types/types';
 import Favourite from '../svgs/Favourite';
 import useUpdateFavourites from '../../hooks/useUpdateFavourites';
+import useUserContext from '../../hooks/useUserContext';
+import { Link } from 'react-router-dom';
 
 export default function HotelDetailsCard({
   _id,
@@ -11,7 +13,7 @@ export default function HotelDetailsCard({
   imageId,
 }: HotelDataType) {
   const { updateFavourites } = useUpdateFavourites();
-
+  const userContext = useUserContext();
   return (
     <div className="hotel-details-card">
       <img src={imageUrl} />
@@ -22,14 +24,23 @@ export default function HotelDetailsCard({
         </div>
 
         <h4>Overall Rating</h4>
-        <div>
-          <h1>Description</h1>
-          <p>{text}</p>
+        <div className="bottom-section">
+          <div>
+            <h1>Description</h1>
+            <p>{text}</p>
+          </div>
+          <div>
+            <Favourite
+              updateFavourites={() => updateFavourites({ hotelId: _id })}
+              hotelId={_id}
+            />
+            {userContext.user.role === 'admin' && (
+              <Link to={`/edit/${_id}`}>
+                <button>Edit</button>
+              </Link>
+            )}
+          </div>
         </div>
-        <Favourite
-          updateFavourites={() => updateFavourites({ hotelId: _id })}
-          hotelId={_id}
-        />
       </div>
     </div>
   );
