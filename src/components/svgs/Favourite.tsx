@@ -1,11 +1,26 @@
-export default function Favourite() {
+import useUserContext from '../../hooks/useUserContext';
+interface FavouriteProps {
+  hotelId: string;
+  updateFavourites: () => void;
+}
+
+export default function Favourite({
+  updateFavourites,
+  hotelId,
+}: FavouriteProps) {
+  const userContext = useUserContext();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill="red"
+      fill={`${
+        userContext?.user?.favourites?.find(({ _id }) => _id === hotelId)
+          ? 'red'
+          : 'none'
+      }`}
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
+      onClick={updateFavourites}
     >
       <path
         strokeLinecap="round"
