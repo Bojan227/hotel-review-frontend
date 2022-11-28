@@ -3,7 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+main {
+  background-color: #fcfbd8;
+}
 .star-rating > button {
   background-color: transparent;
   border: none;
@@ -16,4 +18,17 @@
 }
 .off {
   color: #ccc;
+}
+
+@media (max-width: 660px) {
+  .favourites-container {
+    background-color: #fcfbd8;
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+    align-items: center;
+    min-height: 100vh;
+    padding: 30px;
+    width: 100%;
+  }
 }

@@ -17,7 +17,7 @@ export default function HotelDetailsCard({
       <img src={imageUrl} />
       <div className="hotel-details-card-info">
         <div>
-          <h2>{hotelName}</h2>
+          <h1>{hotelName}</h1>
           <p>{address}</p>
         </div>
 

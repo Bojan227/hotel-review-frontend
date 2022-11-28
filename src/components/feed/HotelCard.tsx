@@ -1,5 +1,6 @@
 import { HotelDataType } from './types/types';
 import { Link } from 'react-router-dom';
+import { ReviewButton } from '../buttons/ReviewButton';
 
 export default function HotelCard({
   _id,
@@ -18,7 +19,9 @@ export default function HotelCard({
         <h4>Overall Rating</h4>
         <p>{text}</p>
         <Link to={`/h/${_id}`}>
-          <button>Reviews</button>
+          <ReviewButton disabled={false} className="review-btn-card">
+            Reviews
+          </ReviewButton>
         </Link>
       </div>
     </div>

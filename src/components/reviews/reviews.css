@@ -37,27 +37,31 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
-    border-top: 2px solid whitesmoke;
+    border-top: 2px solid #6366f1;
     gap: 5px;
   }
   textarea {
     resize: none;
-    width: 350px;
-    height: 80px;
+    width: 70%;
+    height: 100%;
     outline: none;
     border: 0;
     padding: 8px;
-    background-color: #00a4ccff;
-    color: white;
+    background-color: #6366f1;
+    color: black;
+    border-radius: 8px;
+    font-size: 1.1rem;
   }
   textarea::placeholder {
     color: white;
   }
   .review-btn {
-    background-color: #00a4ccff;
+    background-color: #6366f1;
     outline: none;
     border: 0;
     padding: 10px 55px;
     color: white;
+    border-radius: 8px;
+    cursor: pointer;
   }
 }
