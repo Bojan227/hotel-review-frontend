@@ -1,7 +1,10 @@
 import { createContext, useReducer, useEffect } from 'react';
 import { HotelDataType } from '../components/feed/types/types';
 
-type ActionType = { type: 'LOGIN'; payload: UserType } | { type: 'LOGOUT' };
+type ActionType =
+  | { type: 'LOGIN'; payload: UserType }
+  | { type: 'LOGOUT' }
+  | { type: 'UPDATE_FAV'; payload: HotelDataType };
 
 export interface UserType {
   email: string;
@@ -12,7 +15,7 @@ export interface UserType {
 }
 
 interface UserContextInterface {
-  user: UserType | null;
+  user: UserType;
   dispatch: (action: ActionType) => void;
 }
 
@@ -27,15 +30,25 @@ export const UserContext = createContext<UserContextInterface>({
   dispatch: () => {},
 });
 
-export const userReducer = (
-  state: { user: UserType | null },
-  action: ActionType
-) => {
+export const userReducer = (state: { user: any }, action: ActionType) => {
   switch (action.type) {
     case 'LOGIN':
       return { user: action.payload };
     case 'LOGOUT':
       return { user: null };
+    case 'UPDATE_FAV':
+      return {
+        user: {
+          ...state.user,
+          favourites: state.user?.favourites.find(
+            ({ _id }: { _id: string }) => _id === action.payload._id
+          )
+            ? state.user.favourites.filter(
+                ({ _id }: { _id: string }) => _id !== action.payload._id
+              )
+            : [...state.user?.favourites!, action.payload],
+        },
+      };
     default:
       return state;
   }
@@ -47,7 +60,7 @@ interface UserContextProviderProps {
 
 export const UserContextProvider = ({ children }: UserContextProviderProps) => {
   const [state, dispatch] = useReducer(userReducer, {
-    user: null,
+    user: undefined,
   });
 
   useEffect(() => {
