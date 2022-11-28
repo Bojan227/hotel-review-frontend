@@ -17,7 +17,7 @@ export default function HotelCard({
         <h3>{address}</h3>
         <h4>Overall Rating</h4>
         <p>{text}</p>
-        <Link to={`h/${_id}`}>
+        <Link to={`/h/${_id}`}>
           <button>Reviews</button>
         </Link>
       </div>

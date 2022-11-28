@@ -1,6 +1,6 @@
 import { HotelDataType } from './types/types';
 import Favourite from '../svgs/Favourite';
-import { useHotelContext } from '../../context/hotelContext';
+import useUpdateFavourites from '../../hooks/useUpdateFavourites';
 
 export default function HotelDetailsCard({
   _id,
@@ -10,6 +10,8 @@ export default function HotelDetailsCard({
   text,
   imageId,
 }: HotelDataType) {
+  const { updateFavourites } = useUpdateFavourites();
+
   return (
     <div className="hotel-details-card">
       <img src={imageUrl} />
@@ -24,7 +26,10 @@ export default function HotelDetailsCard({
           <h1>Description</h1>
           <p>{text}</p>
         </div>
-        <Favourite />
+        <Favourite
+          updateFavourites={() => updateFavourites({ hotelId: _id })}
+          hotelId={_id}
+        />
       </div>
     </div>
   );
