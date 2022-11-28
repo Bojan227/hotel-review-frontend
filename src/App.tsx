@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import useUserContext from './hooks/useUserContext';
 import Navigation from './components/navigation/NavigationContainer';
 import HotelDetails from './components/feed/HotelDetails';
+import FavouritesContainer from './components/FavouritesContainer';
+// import CreateHotelForm from './components/CreateHotelForm';
 
 function App() {
   const userContext = useUserContext();
@@ -19,7 +21,10 @@ function App() {
             path="login"
             element={userContext?.user ? <Navigate to="/" /> : <Login />}
           />
-          <Route path="h/:hotelId" element={<HotelDetails />} />
+
+          <Route path="/favourites" element={<FavouritesContainer />} />
+          <Route path="/h/:hotelId" element={<HotelDetails />} />
+          {/* <Route path="/create" element={<CreateHotelForm />} /> */}
         </Routes>
       </BrowserRouter>
     </div>
