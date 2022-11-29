@@ -7,6 +7,13 @@
   overflow-y: auto;
   width: 100%;
 }
+.show-like {
+  display: block;
+  width: 32px;
+}
+h4 {
+  cursor: pointer;
+}
 
 .review-card {
   display: flex;
@@ -78,10 +85,5 @@ textarea::placeholder {
   }
   .review-card {
     width: 100%;
-  }
-
-  .show-like {
-    display: block;
-    width: 32px;
   }
 }
