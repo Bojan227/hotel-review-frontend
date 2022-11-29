@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import HotelContainer from '../components/feed/HotelContainer';
+import LoadingSpinner from '../components/LoadingSpinner';
 import SearchContainer from '../components/SearchContainer';
 import useGetHotels from '../hooks/useGetHotels';
 
@@ -27,10 +28,10 @@ export default function Home() {
       <SearchContainer
         {...{ name, setName, address, setAddress, setPage, setHotels }}
       />
-      {isLoading && <h1>Loading...</h1>}
+      {isLoading && <LoadingSpinner />}
       {hotels && <HotelContainer hotelData={hotels} />}
       {isLoading ? (
-        <h1>Loading...</h1>
+        <LoadingSpinner />
       ) : numberOfHotels && hotels.length < numberOfHotels ? (
         <button
           className="primary-btn"
