@@ -1,72 +1,85 @@
-@media (max-width: 660px) {
-  .reviews-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-height: 300px;
-    min-height: 300px;
-    overflow-y: auto;
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 300px;
+  min-height: 300px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.review-card {
+  display: flex;
+  gap: 10px;
+  background-color: white;
+  padding: 20px;
+  width: 55%;
+  border: 1px solid #f1f5f9;
+  justify-content: space-between;
+}
+a {
+  padding: 0;
+}
+.review-card > :nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  gap: 10px;
+}
+.review-card > :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30px;
+  gap: 10px;
+  justify-content: space-between;
+}
+.review-form {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  border-top: 2px solid #6366f1;
+  width: 100%;
+  gap: 5px;
+}
+textarea {
+  resize: none;
+  width: 50%;
+  outline: none;
+  border: 0;
+  padding: 8px;
+  background-color: #6366f1;
+  color: black;
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+textarea::placeholder {
+  color: white;
+}
+.review-btn {
+  background-color: #6366f1;
+  outline: none;
+  border: 0;
+  padding: 10px 55px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+@media (max-width: 1150px) {
+  .review-card {
+    width: 85%;
   }
-  a {
-    padding: 0;
+}
+@media (max-width: 660px) {
+  textarea {
+    width: 75%;
+  }
+  .review-card {
+    width: 100%;
   }
 
-  .review-card {
-    display: flex;
-    width: 100%;
-    gap: 10px;
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #f1f5f9;
-    justify-content: space-between;
-  }
-  .review-card > :nth-child(1) {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    gap: 10px;
-  }
-  .review-card > :nth-child(2) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 30px;
-    gap: 10px;
-    justify-content: space-between;
-  }
-  .review-form {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    border-top: 2px solid #6366f1;
-    gap: 5px;
-  }
-  textarea {
-    resize: none;
-    width: 70%;
-    height: 100%;
-    outline: none;
-    border: 0;
-    padding: 8px;
-    background-color: #6366f1;
-    color: black;
-    border-radius: 8px;
-    font-size: 1.1rem;
-  }
-  textarea::placeholder {
-    color: white;
-  }
-  .review-btn {
-    background-color: #6366f1;
-    outline: none;
-    border: 0;
-    padding: 10px 55px;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-  }
   .show-like {
     display: block;
     width: 32px;

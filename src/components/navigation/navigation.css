@@ -39,6 +39,7 @@ li {
     position: fixed;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 35px;
     z-index: 1000;
     top: 0;
@@ -55,6 +56,7 @@ li {
   }
   .menu {
     display: block;
+    width: 32px;
   }
 
   .close-menu {

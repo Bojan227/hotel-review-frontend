@@ -8,6 +8,10 @@ main {
   background-color: #fcfbd8;
   text-align: center;
 }
+
+main > button {
+  margin-bottom: 50px;
+}
 .star-rating > button {
   background-color: transparent;
   border: none;
