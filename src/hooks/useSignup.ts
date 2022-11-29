@@ -14,17 +14,20 @@ export const useSignup = () => {
   const signup = async ({ email, password, displayName }: SignupProps) => {
     setIsLoading(true);
 
-    const res = await fetch('http://localhost:3000/user/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email,
-        password,
-        displayName,
-      }),
-    });
+    const res = await fetch(
+      'https://hotel-review-api.onrender.com/user/signup',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          displayName,
+        }),
+      }
+    );
     const { message, error } = await res.json();
     if (res.ok) {
       setMessage(message);

@@ -36,7 +36,7 @@ export default function ReviewCard({
           <Like
             updateLike={() =>
               update({
-                uri: 'http://localhost:3000/review/',
+                uri: 'https://hotel-review-api.onrender.com/review/',
                 reviewId: _id,
                 setReviews,
               })
@@ -64,7 +64,7 @@ export default function ReviewCard({
             dislikes={dislikes}
             updateDislike={() =>
               update({
-                uri: 'http://localhost:3000/review/dislike',
+                uri: 'https://hotel-review-api.onrender.com/review/dislike',
                 reviewId: _id,
                 setReviews,
               })

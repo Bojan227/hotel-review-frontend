@@ -16,7 +16,7 @@ export default function Home() {
 
     const timeout = setTimeout(async () => {
       getHotels(
-        `http://localhost:3000/hotel/?name=${name}&address=${address}&page=${page}`
+        `https://hotel-review-api.onrender.com/hotel/?name=${name}&address=${address}&page=${page}`
       );
       setIsLoading(false);
     }, 2000);

@@ -18,7 +18,7 @@ export default function useEditHotelDetails() {
     hotelId,
   }: editHotelDetailsProps) => {
     try {
-      const res = await fetch('http://localhost:3000/hotel/', {
+      const res = await fetch('https://hotel-review-api.onrender.com/hotel/', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

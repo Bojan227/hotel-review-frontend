@@ -13,7 +13,7 @@ export default function useCreateReview() {
   ) => {
     setIsLoading(true);
     try {
-      const res = await fetch('http://localhost:3000/review/', {
+      const res = await fetch('https://hotel-review-api.onrender.com/review/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

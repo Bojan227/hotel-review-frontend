@@ -17,7 +17,9 @@ export default function UsersContainer({
   const { getUsers, users, errorMessage } = useGetUsers();
 
   useEffect(() => {
-    getUsers(`http://localhost:3000/review/${reviewId}/${title.toLowerCase()}`);
+    getUsers(
+      `https://hotel-review-api.onrender.com/review/${reviewId}/${title.toLowerCase()}`
+    );
   }, []);
 
   console.log(users);

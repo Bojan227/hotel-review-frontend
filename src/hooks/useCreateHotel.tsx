@@ -25,19 +25,22 @@ export default function useCreateHotel() {
     const uploadWithImage = async (img: string) => {
       setIsLoading(true);
       try {
-        const res = await fetch('http://localhost:3000/hotel/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${document.cookie.split('=')[1]}`,
-          },
-          body: JSON.stringify({
-            text,
-            hotelName,
-            address,
-            image: img,
-          }),
-        });
+        const res = await fetch(
+          'https://hotel-review-api.onrender.com/hotel/',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${document.cookie.split('=')[1]}`,
+            },
+            body: JSON.stringify({
+              text,
+              hotelName,
+              address,
+              image: img,
+            }),
+          }
+        );
 
         const hotel = await res.json();
         console.log(hotel);

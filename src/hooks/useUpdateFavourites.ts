@@ -7,16 +7,19 @@ export default function useUpdateFavourites() {
 
   const updateFavourites = async ({ hotelId }: { hotelId: string }) => {
     try {
-      const res = await fetch('http://localhost:3000/user/favourites', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${document.cookie.split('=')[1]}`,
-        },
-        body: JSON.stringify({
-          hotelId,
-        }),
-      });
+      const res = await fetch(
+        'https://hotel-review-api.onrender.com/user/favourites',
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${document.cookie.split('=')[1]}`,
+          },
+          body: JSON.stringify({
+            hotelId,
+          }),
+        }
+      );
       const { user, hotel } = await res.json();
       userContext.dispatch({ type: 'UPDATE_FAV', payload: hotel });
       localStorage.setItem('user', JSON.stringify(user));

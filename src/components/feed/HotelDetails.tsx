@@ -13,8 +13,8 @@ export default function HotelDetails() {
   const { data, getData } = useFetch();
   const { reviews, setReviews, getReviews } = useGetReviews();
   useEffect(() => {
-    getData(`http://localhost:3000/hotel/${hotelId}`);
-    getReviews(`http://localhost:3000/review/${hotelId}`);
+    getData(`https://hotel-review-api.onrender.com/hotel/${hotelId}`);
+    getReviews(`https://hotel-review-api.onrender.com/review/${hotelId}`);
   }, []);
 
   return (

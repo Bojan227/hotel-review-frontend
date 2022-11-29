@@ -14,7 +14,7 @@ export default function OverallRating({
 
   useEffect(() => {
     if (hotelId) {
-      getData(`http://localhost:3000/review/rating/${hotelId}`);
+      getData(`https://hotel-review-api.onrender.com/review/rating/${hotelId}`);
     }
   }, [reviews?.length]);
 

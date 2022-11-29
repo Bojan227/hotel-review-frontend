@@ -14,7 +14,9 @@ export default function EditContainer() {
     setIsLoading(true);
     const getData = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/hotel/${hotelId}`);
+        const res = await fetch(
+          `https://hotel-review-api.onrender.com/hotel/${hotelId}`
+        );
         const data = await res.json();
         const { text, hotelName, address, imageUrl } = data[0];
         setText(text);

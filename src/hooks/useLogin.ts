@@ -9,16 +9,19 @@ export default function useLogin() {
 
   const login = async (email: string, password: string) => {
     setIsLoading(true);
-    const res = await fetch('http://localhost:3000/user/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
+    const res = await fetch(
+      'https://hotel-review-api.onrender.com/user/login',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
 
     const { user, token, error } = await res.json();
 
