@@ -32,8 +32,11 @@ export default function Navigation() {
         onClick={() => setToggleMenu(false)}
       >
         {filterByRole.map((data) => (
-          <li onClick={data.title === 'Logout' ? logout : undefined}>
-            <NavigationLink key={uuidv4()} {...data} />
+          <li
+            key={uuidv4()}
+            onClick={data.title === 'Logout' ? logout : undefined}
+          >
+            <NavigationLink {...data} />
           </li>
         ))}
         <div className="close-menu">
