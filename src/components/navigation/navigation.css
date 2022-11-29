@@ -1,12 +1,40 @@
+nav {
+  background-color: #6366f1;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu {
+  display: none;
+}
+.close-menu {
+  display: none;
+}
+a {
+  list-style: none;
+  color: black;
+  font-size: 2rem;
+  padding: 25px;
+  text-decoration: none;
+}
+li {
+  list-style-type: none;
+}
+
 @media (max-width: 660px) {
   nav {
-    background-color: #6366f1;
     position: relative;
     padding-top: 20px;
   }
   .navigation {
     display: none;
   }
+
   .navigation.opened {
     position: fixed;
     display: flex;
@@ -25,15 +53,12 @@
   .navigation.opened > :nth-child(2) {
     flex: 1;
   }
-
-  a {
-    list-style: none;
-    color: black;
-    font-size: 2rem;
-    padding: 25px;
-    text-decoration: none;
+  .menu {
+    display: block;
   }
+
   .close-menu {
+    display: block;
     position: absolute;
     top: 35px;
     right: 20px;

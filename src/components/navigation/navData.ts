@@ -7,10 +7,7 @@
 
 export const homeData = [{ title: 'Home', link: '/' }];
 
-export const adminUser = [
-  { title: 'Create', link: '/create' },
-  { title: 'Edit', link: 'edit/:hotelId' },
-];
+export const adminUser = [{ title: 'Create', link: '/create' }];
 
 export const userLoggedIn = [
   { title: 'Favourites', link: '/favourites' },

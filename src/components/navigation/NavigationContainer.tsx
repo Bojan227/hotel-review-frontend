@@ -3,6 +3,7 @@ import { NavigationLink } from './NavigationLink';
 import useLogout from '../../hooks/useLogout';
 import menu from './images/menu.png';
 import close from './images/close.png';
+import { v4 as uuidv4 } from 'uuid';
 import './navigation.css';
 
 import useUserContext from '../../hooks/useUserContext';
@@ -30,9 +31,9 @@ export default function Navigation() {
         className={`navigation ${toggleMenu ? 'opened' : ''}`}
         onClick={() => setToggleMenu(false)}
       >
-        {filterByRole.map((data, i) => (
+        {filterByRole.map((data) => (
           <li onClick={data.title === 'Logout' ? logout : undefined}>
-            <NavigationLink key={i} {...data} />
+            <NavigationLink key={uuidv4()} {...data} />
           </li>
         ))}
         <div className="close-menu">
