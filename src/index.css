@@ -83,22 +83,21 @@ label {
   gap: 25px;
   justify-content: space-around;
 }
+.favourites-container {
+  background-color: #fcfbd8;
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+  align-items: center;
+  min-height: 100vh;
+  padding: 30px;
+  width: 100%;
+}
+.favourites-container > h1 {
+  color: #6366f1;
+}
 
 @media (max-width: 660px) {
-  .favourites-container {
-    background-color: #fcfbd8;
-    display: flex;
-    flex-direction: column;
-    gap: 55px;
-    align-items: center;
-    min-height: 100vh;
-    padding: 30px;
-    width: 100%;
-  }
-  .favourites-container > h1 {
-    color: #6366f1;
-  }
-
   .overall-rating {
     display: flex;
     flex-direction: column;
