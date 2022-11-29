@@ -2,6 +2,7 @@ import { HotelDataType } from './types/types';
 import { Link } from 'react-router-dom';
 import { ReviewButton } from '../buttons/ReviewButton';
 import useUserContext from '../../hooks/useUserContext';
+import OverallRating from '../OverallRating';
 
 export default function HotelCard({
   _id,
@@ -19,7 +20,7 @@ export default function HotelCard({
       <div className="hotel-card-info">
         <h2>{hotelName}</h2>
         <h3>{address}</h3>
-        <h4>Overall Rating</h4>
+        {_id && <OverallRating hotelId={_id} />}
         <p>{text}</p>
         <div>
           <Link to={`/h/${_id}`}>
