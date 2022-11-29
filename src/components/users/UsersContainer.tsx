@@ -14,7 +14,7 @@ export default function UsersContainer({
   reviewId,
   closeModal,
 }: UsersContainerProps) {
-  const { getUsers, users, errorMessage } = useGetUsers();
+  const { getUsers, users } = useGetUsers();
 
   useEffect(() => {
     getUsers(
@@ -22,7 +22,6 @@ export default function UsersContainer({
     );
   }, []);
 
-  console.log(users);
   return (
     <div onClick={closeModal} className="main-users-container">
       <div onClick={(e) => e.stopPropagation()} className="users-container">

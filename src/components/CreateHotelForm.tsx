@@ -10,7 +10,7 @@ export default function CreateHotelForm() {
   const [text, setText] = useState('');
   const [files, setFiles] = useState<File[] | null>(null);
 
-  const { createHotel, isLoading, error, message } = useCreateHotel();
+  const { createHotel, message } = useCreateHotel();
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     if (files) {
