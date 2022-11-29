@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 main {
   background-color: #fcfbd8;
   text-align: center;
@@ -50,6 +51,9 @@ main {
   color: black;
 }
 
+.main-form > div > textarea {
+  width: 100%;
+}
 label {
   color: black;
   font-weight: 900;

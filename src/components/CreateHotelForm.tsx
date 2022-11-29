@@ -20,43 +20,40 @@ export default function CreateHotelForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="hotelName">
-        Hotel Name
+    <form onSubmit={handleSubmit} className="main-form">
+      <div>
+        {files && <img src={URL.createObjectURL(files[0])} />}
+        <label htmlFor="hotelName">Hotel Name</label>
         <InputField
           type="text"
           value={hotelName}
           onChange={(hotelName) => setHotelName(hotelName)}
         />
-      </label>
-      <label htmlFor="address">
-        Address
+        <label htmlFor="address">Address</label>
         <InputField
           type="text"
           value={address}
           onChange={(address) => setAddress(address)}
         />
-      </label>
-      <label htmlFor="description">
-        Description
+        <label htmlFor="description">Description</label>
         <textarea value={text} onChange={(e) => setText(e.target.value)} />
-      </label>
-      <input
-        onChange={(e) => e.target.files && setFiles([...e.target.files])}
-        type="file"
-        id="actual-btn"
-      />
+        <input
+          onChange={(e) => e.target.files && setFiles([...e.target.files])}
+          type="file"
+          id="actual-btn"
+        />
 
-      <label htmlFor="actual-btn">Choose File</label>
+        <label htmlFor="actual-btn">Choose File</label>
 
-      <AddButton
-        className="add-hotel-btn"
-        disabled={!text || !address || !hotelName || !files ? true : false}
-      >
-        Add Hotel
-      </AddButton>
-      {files && <img src={URL.createObjectURL(files[0])} />}
-      {message && <Navigate to="/" />}
+        <AddButton
+          className="primary-btn"
+          disabled={!text || !address || !hotelName || !files ? true : false}
+        >
+          Add Hotel
+        </AddButton>
+
+        {message && <Navigate to="/" />}
+      </div>
     </form>
   );
 }

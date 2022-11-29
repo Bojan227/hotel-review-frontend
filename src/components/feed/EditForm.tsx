@@ -2,6 +2,7 @@ import InputField from '../InputField';
 import useEditHotelDetails from '../../hooks/useEditHotelDetails';
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
+import { PrimaryButton } from '../buttons/PrimaryButton';
 
 interface EditFormProps {
   address: string;
@@ -29,34 +30,25 @@ export default function EditForm({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="hotelName">
-        Hotel Name
-        <InputField
-          type="hotelName"
-          value={hotelName}
-          onChange={(hotelName) => setHotelName(hotelName)}
-        />
-      </label>
-      <label htmlFor="address">
-        Address
-        <InputField
-          type="address"
-          value={address}
-          onChange={(address) => setAddress(address)}
-        />
-      </label>
-      <label htmlFor="text">
-        Description
-        <InputField
-          type="text"
-          value={text}
-          onChange={(text) => setText(text)}
-        />
-      </label>
+    <form onSubmit={handleSubmit} className="edit-form">
+      <label htmlFor="hotelName">Hotel Name</label>
+      <InputField
+        type="hotelName"
+        value={hotelName}
+        onChange={(hotelName) => setHotelName(hotelName)}
+      />
+      <label htmlFor="address">Address</label>
+      <InputField
+        type="address"
+        value={address}
+        onChange={(address) => setAddress(address)}
+      />
+      <label htmlFor="text">Description</label>
+      <textarea value={text} onChange={(e) => setText(e.target.value)} />
+
       {error}
       {message && <Navigate to="/" />}
-      <button>Submit</button>
+      <PrimaryButton disabled={false}>Submit</PrimaryButton>
     </form>
   );
 }
