@@ -8,6 +8,7 @@
     min-height: 100vh;
     padding: 30px;
     width: 100%;
+    margin-top: 25px;
   }
 
   .hotel-card {
@@ -73,6 +74,7 @@
   .hotel-details-card-info > :nth-child(1) {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   .hotel-details-card-info > :nth-child(1) > h1 {
     color: #6366f1;
@@ -80,6 +82,7 @@
   .bottom-section {
     display: flex;
     justify-content: space-between;
+    padding: 5px;
   }
   .bottom-section > div > svg {
     width: 62px;
@@ -96,24 +99,42 @@
     align-items: center;
     gap: 20px;
   }
-
-  .review-btn-card {
-    background-color: #6366f1;
-    padding: 10px 45px;
-    border: 0;
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+  }
+  .search-container > input {
+    padding: 5px 35px;
     outline: none;
-    cursor: pointer;
-    border-radius: 5px;
-    color: white;
+    border: none;
+    background-color: inherit;
+    border-bottom: 2px solid #6366f1;
+    font-size: 1.3rem;
+    color: black;
   }
 }
 
 @media (max-width: 360px) {
+  .hotel-container {
+    font-size: 0.7rem;
+    padding: 10px;
+  }
+  .hotel-card {
+    width: 100%;
+  }
   .hotel-card > img {
     width: 40%;
     height: 85%;
   }
   .hotel-details-card > img {
     width: 100%;
+  }
+  .hotel-card > img {
+    top: -25px;
+    right: 0;
+    left: 0;
   }
 }

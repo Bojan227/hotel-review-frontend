@@ -1,6 +1,6 @@
 import { HotelDataType } from './types/types';
 import { Link } from 'react-router-dom';
-import { ReviewButton } from '../buttons/ReviewButton';
+import { PrimaryButton } from '../buttons/PrimaryButton';
 import useUserContext from '../../hooks/useUserContext';
 import OverallRating from '../OverallRating';
 
@@ -10,7 +10,6 @@ export default function HotelCard({
   hotelName,
   address,
   text,
-  imageId,
 }: HotelDataType) {
   const userContext = useUserContext();
 
@@ -22,15 +21,13 @@ export default function HotelCard({
         <h3>{address}</h3>
         {_id && <OverallRating hotelId={_id} />}
         <p>{text}</p>
-        <div>
+        <div className="buttons">
           <Link to={`/h/${_id}`}>
-            <ReviewButton disabled={false} className="review-btn-card">
-              Reviews
-            </ReviewButton>
+            <PrimaryButton disabled={false}>Reviews</PrimaryButton>
           </Link>
-          {userContext.user.role === 'admin' && (
+          {userContext?.user?.role === 'admin' && (
             <Link to={`/edit/${_id}`}>
-              <button>Edit</button>
+              <PrimaryButton disabled={false}>Edit</PrimaryButton>
             </Link>
           )}
         </div>

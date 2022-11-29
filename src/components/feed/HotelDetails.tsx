@@ -19,11 +19,16 @@ export default function HotelDetails() {
 
   return (
     <div className="hotel-details">
-      {data && <HotelDetailsCard {...{ ...(data[0] as HotelDataType) }} />}
+      {data && (
+        <HotelDetailsCard
+          {...{ ...(data[0] as HotelDataType) }}
+          reviews={reviews}
+        />
+      )}
       {reviews && (
         <ReviewsContainer reviews={reviews} setReviews={setReviews} />
       )}
-      <CreateReviewForm setReviews={setReviews} />
+      {reviews && <CreateReviewForm setReviews={setReviews} />}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import useUserContext from '../../hooks/useUserContext';
 type LikeProps = {
-  updateLike: () => void;
-  likes: (string | undefined)[];
+  updateLike?: () => void;
+  likes?: (string | undefined)[];
 };
 
 export const Like = ({ updateLike, likes }: LikeProps) => {

@@ -27,7 +27,6 @@ export default function useCreateReview() {
       });
 
       const review = await res.json();
-
       setReviews((prev) => [...prev!, review]);
     } catch (err) {
       setError('Something went wrong');

@@ -1,8 +1,7 @@
-import { UserType } from '../../context/userContext';
 import useUserContext from '../../hooks/useUserContext';
 type DislikeProps = {
-  updateDislike: () => void;
-  dislikes: (string | undefined)[];
+  updateDislike?: () => void;
+  dislikes?: (string | undefined)[];
 };
 
 export const Dislike = ({ updateDislike, dislikes }: DislikeProps) => {

@@ -14,7 +14,7 @@ export default function Favourite({
       xmlns="http://www.w3.org/2000/svg"
       fill={`${
         userContext?.user?.favourites?.find(({ _id }) => _id === hotelId)
-          ? 'red'
+          ? '#6366f1'
           : 'none'
       }`}
       viewBox="0 0 24 24"

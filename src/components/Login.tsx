@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import InputField from './InputField';
 import useLogin from '../hooks/useLogin';
-import { LoginButton } from './buttons/LoginButton';
+import { PrimaryButton } from './buttons/PrimaryButton';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -14,30 +15,33 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="email">
-        Email
+    <form onSubmit={handleSubmit} className="main-form">
+      <h1>Login</h1>
+      <div>
+        <label htmlFor="email">Email</label>
         <InputField
           type="text"
           value={email}
           onChange={(email) => setEmail(email)}
         />
-      </label>
-      <label htmlFor="password">
-        Password
+        <label htmlFor="password">Password</label>
         <InputField
           type="password"
           value={password}
           onChange={(password) => setPassword(password)}
         />
-      </label>
-      <LoginButton
-        className="login-btn"
-        disabled={!email || !password ? true : false}
-      >
-        Login
-      </LoginButton>
-      {error}
+
+        <div className="buttons">
+          <PrimaryButton disabled={!email || !password ? true : false}>
+            Login
+          </PrimaryButton>
+          <Link to="/signup">
+            <PrimaryButton disabled={false}>Sign up</PrimaryButton>
+          </Link>
+        </div>
+
+        {error}
+      </div>
     </form>
   );
 }

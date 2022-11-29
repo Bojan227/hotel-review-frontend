@@ -17,7 +17,7 @@ export default function SearchContainer({
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }) {
   return (
-    <form>
+    <form className="search-container">
       Search By Hotel Name
       <InputField
         type="search"

@@ -4,6 +4,8 @@ import useUpdateFavourites from '../../hooks/useUpdateFavourites';
 import useUserContext from '../../hooks/useUserContext';
 import { Link } from 'react-router-dom';
 import OverallRating from '../OverallRating';
+import { PrimaryButton } from '../buttons/PrimaryButton';
+import { ReviewType } from '../reviews/types/ReviewTypes';
 
 export default function HotelDetailsCard({
   _id,
@@ -11,8 +13,8 @@ export default function HotelDetailsCard({
   hotelName,
   address,
   text,
-  imageId,
-}: HotelDataType) {
+  reviews,
+}: HotelDataType & { reviews: ReviewType[] | undefined }) {
   const { updateFavourites } = useUpdateFavourites();
   const userContext = useUserContext();
 
@@ -25,20 +27,22 @@ export default function HotelDetailsCard({
           <p>{address}</p>
         </div>
 
-        <OverallRating hotelId={_id} />
+        <OverallRating hotelId={_id} reviews={reviews} />
         <div className="bottom-section">
           <div>
             <h2>Description</h2>
             <p>{text}</p>
           </div>
           <div>
-            <Favourite
-              updateFavourites={() => updateFavourites({ hotelId: _id })}
-              hotelId={_id}
-            />
-            {userContext.user.role === 'admin' && (
+            {userContext.user ? (
+              <Favourite
+                updateFavourites={() => updateFavourites({ hotelId: _id })}
+                hotelId={_id}
+              />
+            ) : null}
+            {userContext?.user?.role === 'admin' && (
               <Link to={`/edit/${_id}`}>
-                <button>Edit</button>
+                <PrimaryButton disabled={false}>Edit</PrimaryButton>
               </Link>
             )}
           </div>

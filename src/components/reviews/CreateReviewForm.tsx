@@ -1,9 +1,10 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import useCreateReview from '../../hooks/useCreateReview';
-import { ReviewButton } from '../buttons/ReviewButton';
+import { PrimaryButton } from '../buttons/PrimaryButton';
 import { StarRating } from '../StarRating';
 import { ReviewType } from './types/ReviewTypes';
+import useUserContext from '../../hooks/useUserContext';
 
 export default function CreateReviewForm({
   setReviews,
@@ -14,16 +15,15 @@ export default function CreateReviewForm({
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const { hotelId } = useParams();
-  const { isLoading, error, createReview } = useCreateReview();
+  const { createReview } = useCreateReview();
+  const userContext = useUserContext();
 
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     await createReview(text, hotelId, rating, setReviews);
-    setText(() => '');
-    setHover(() => 0);
   }
 
-  return (
+  return userContext.user ? (
     <form onSubmit={handleSubmit} className="review-form">
       <textarea
         value={text}
@@ -31,12 +31,14 @@ export default function CreateReviewForm({
         placeholder="Tell us your experience"
       />
       <StarRating {...{ rating, setRating, hover, setHover }} />
-      <ReviewButton
-        className="review-btn"
-        disabled={rating === 0 || !text ? true : false}
-      >
+      <PrimaryButton disabled={rating === 0 || !text ? true : false}>
         Rate
-      </ReviewButton>
+      </PrimaryButton>
     </form>
+  ) : (
+    <div className="review-form">
+      <h1>Want to make your first review</h1>
+      <Link to="/signup"> Signup here</Link>
+    </div>
   );
 }

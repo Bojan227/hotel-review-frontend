@@ -10,8 +10,6 @@ export default function Home() {
   const { getHotels, hotels, setHotels, numberOfHotels } = useGetHotels();
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(page);
-
   useEffect(() => {
     setIsLoading(true);
 
@@ -34,7 +32,10 @@ export default function Home() {
       {isLoading ? (
         <h1>Loading...</h1>
       ) : numberOfHotels && hotels.length < numberOfHotels ? (
-        <button onClick={() => setPage((prevPage) => prevPage + 1)}>
+        <button
+          className="primary-btn"
+          onClick={() => setPage((prevPage) => prevPage + 1)}
+        >
           Load more
         </button>
       ) : null}

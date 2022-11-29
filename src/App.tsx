@@ -17,12 +17,12 @@ function App() {
       <BrowserRouter>
         <Navigation />
         <Routes>
-          <Route path="/" element={userContext?.user ? <Home /> : <Signup />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
           <Route
-            path="login"
+            path="/login"
             element={userContext?.user ? <Navigate to="/" /> : <Login />}
           />
-
           <Route path="/favourites" element={<FavouritesContainer />} />
           <Route path="/h/:hotelId" element={<HotelDetails />} />
           <Route path="/create" element={<CreateHotelForm />} />
