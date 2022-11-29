@@ -20,6 +20,7 @@ export default function HotelCard({
         <h2>{hotelName}</h2>
         <h3>{address}</h3>
         {_id && <OverallRating hotelId={_id} />}
+        <h1>Description</h1>
         <p>{text}</p>
         <div className="buttons">
           <Link to={`/h/${_id}`}>

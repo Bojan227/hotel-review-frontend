@@ -21,6 +21,7 @@ export default function CreateHotelForm() {
 
   return (
     <form onSubmit={handleSubmit} className="main-form">
+      <h1>Add Hotel</h1>
       <div>
         {files && <img src={URL.createObjectURL(files[0])} />}
         <label htmlFor="hotelName">Hotel Name</label>

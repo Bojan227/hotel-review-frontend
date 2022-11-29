@@ -130,4 +130,8 @@ label {
   .primary-btn {
     font-size: 0.6rem;
   }
+  .favourites-container {
+    font-size: 0.7rem;
+    padding: 10px;
+  }
 }

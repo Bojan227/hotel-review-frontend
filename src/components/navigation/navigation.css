@@ -11,9 +11,11 @@ nav {
 }
 .menu {
   display: none;
+  cursor: pointer;
 }
 .close-menu {
   display: none;
+  cursor: pointer;
 }
 a {
   list-style: none;

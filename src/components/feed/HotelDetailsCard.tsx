@@ -24,7 +24,11 @@ export default function HotelDetailsCard({
       <div className="hotel-details-card-info">
         <div>
           <h1>{hotelName}</h1>
-          <p>{address}</p>
+          <p>
+            <span>Address</span>
+            <br></br>
+            {address}
+          </p>
         </div>
 
         <OverallRating hotelId={_id} reviews={reviews} />
