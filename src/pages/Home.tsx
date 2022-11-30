@@ -8,17 +8,14 @@ export default function Home() {
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [page, setPage] = useState(0);
-  const { getHotels, hotels, setHotels, numberOfHotels } = useGetHotels();
-  const [isLoading, setIsLoading] = useState(false);
+  const { getHotels, hotels, setHotels, numberOfHotels, isLoading } =
+    useGetHotels();
 
   useEffect(() => {
-    setIsLoading(true);
-
     const timeout = setTimeout(async () => {
       getHotels(
         `https://hotel-review-api.onrender.com/hotel/?name=${name}&address=${address}&page=${page}`
       );
-      setIsLoading(false);
     }, 2000);
 
     return () => clearTimeout(timeout);
