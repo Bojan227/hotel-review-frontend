@@ -38,7 +38,7 @@ export default function HotelDetailsCard({
             <p>{text}</p>
           </div>
           <div>
-            {userContext.user.role === 'admin' ? null : (
+            {userContext?.user.role === 'admin' ? null : (
               <Favourite
                 updateFavourites={() => updateFavourites({ hotelId: _id })}
                 hotelId={_id}

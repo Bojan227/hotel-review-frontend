@@ -33,7 +33,7 @@ export default function Navigation() {
       >
         {filterByRole.map((data) =>
           data.title === 'Favourites' &&
-          userContext.user.role === 'admin' ? null : (
+          userContext?.user.role === 'admin' ? null : (
             <li
               key={uuidv4()}
               onClick={data.title === 'Logout' ? logout : undefined}
