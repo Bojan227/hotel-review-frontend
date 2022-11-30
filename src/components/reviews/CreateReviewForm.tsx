@@ -5,6 +5,7 @@ import { PrimaryButton } from '../buttons/PrimaryButton';
 import { StarRating } from '../StarRating';
 import { ReviewType } from './types/ReviewTypes';
 import useUserContext from '../../hooks/useUserContext';
+import LoadingSpinner from '../LoadingSpinner';
 
 export default function CreateReviewForm({
   setReviews,
@@ -15,12 +16,16 @@ export default function CreateReviewForm({
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const { hotelId } = useParams();
-  const { createReview } = useCreateReview();
+  const { createReview, isLoading } = useCreateReview();
   const userContext = useUserContext();
 
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     await createReview(text, hotelId, rating, setReviews);
+  }
+
+  if (isLoading) {
+    return <LoadingSpinner />;
   }
 
   return userContext.user ? (
