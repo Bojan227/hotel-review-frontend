@@ -31,14 +31,17 @@ export default function Navigation() {
         className={`navigation ${toggleMenu ? 'opened' : ''}`}
         onClick={() => setToggleMenu(false)}
       >
-        {filterByRole.map((data) => (
-          <li
-            key={uuidv4()}
-            onClick={data.title === 'Logout' ? logout : undefined}
-          >
-            <NavigationLink {...data} />
-          </li>
-        ))}
+        {filterByRole.map((data) =>
+          data.title === 'Favourites' &&
+          userContext.user.role === 'admin' ? null : (
+            <li
+              key={uuidv4()}
+              onClick={data.title === 'Logout' ? logout : undefined}
+            >
+              <NavigationLink {...data} />
+            </li>
+          )
+        )}
         <div className="close-menu">
           <img src={close} alt="close-menu" />
         </div>

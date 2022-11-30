@@ -38,12 +38,12 @@ export default function HotelDetailsCard({
             <p>{text}</p>
           </div>
           <div>
-            {userContext.user ? (
+            {userContext.user.role === 'admin' ? null : (
               <Favourite
                 updateFavourites={() => updateFavourites({ hotelId: _id })}
                 hotelId={_id}
               />
-            ) : null}
+            )}
             {userContext?.user?.role === 'admin' && (
               <Link to={`/edit/${_id}`}>
                 <PrimaryButton disabled={false}>Edit</PrimaryButton>
