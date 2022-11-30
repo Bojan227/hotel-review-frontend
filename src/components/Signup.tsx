@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import InputField from './InputField';
 import { useSignup } from '../hooks/useSignup';
 import { PrimaryButton } from './buttons/PrimaryButton';
@@ -8,7 +9,7 @@ export default function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
-  const { signup, error, isLoading, message } = useSignup();
+  const { signup, error, message } = useSignup();
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -49,6 +50,7 @@ export default function Signup() {
           </Link>
         </div>
       </div>
+      {message && <Navigate to="/login" />}
     </form>
   );
 }
