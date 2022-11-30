@@ -32,8 +32,8 @@ export default function Navigation() {
         onClick={() => setToggleMenu(false)}
       >
         {filterByRole.map((data) =>
-          data.title === 'Favourites' &&
-          userContext?.user.role === 'admin' ? null : (
+          data?.title === 'Favourites' &&
+          userContext?.user?.role === 'admin' ? null : (
             <li
               key={uuidv4()}
               onClick={data.title === 'Logout' ? logout : undefined}
